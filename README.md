@@ -1,2 +1,2 @@
-# juniperChallenge
-Coding challenge for Juniper Networks
+# Juniper Networks Coding Challenge
+
