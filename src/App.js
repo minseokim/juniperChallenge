@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import UserForm from "./components/UserForm";
+import UserForms from "./components/UserForms";
 import QueryDisplay from "./components/QueryDisplay";
 import "./App.css";
 
 class App extends Component {
+  // data() {
+  //   query : '';
+  //   formData: {
+  //     table_name : '',
+  //     start_time:
+  //   }
+  // }
   render() {
     return (
       <div className="App">
@@ -13,7 +20,7 @@ class App extends Component {
         <section className="container-fluid App__container">
           <div className="row">
             <div className="col-sm-6">
-              <UserForm />
+              <UserForms />
             </div>
             <div className="col-sm-6">
               <QueryDisplay />
