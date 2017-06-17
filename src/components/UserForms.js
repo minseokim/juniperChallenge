@@ -3,11 +3,13 @@ import SingleInput from './SingleInput';
 import SelectFields from './SelectFields';
 import WhereClause from './WhereClause';
 
-const UserForms = () => {
+const UserForms = (props) => {
   return (
-    <div>
-      Hello World!
-    </div>
+    <form>
+      <SingleInput />
+      <SelectFields />
+      <WhereClause />
+    </form>
     )
 }
 

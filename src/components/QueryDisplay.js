@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QueryDisplay = () => {
+const QueryDisplay = (props) => {
   return (
     <div>
       Display Generated Query Here

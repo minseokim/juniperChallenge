@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
 
-const SingleInput = (props) => {
+const SingleInput = props => {
   return (
-    <div>
-      Hello World!
+    <div className="form-group">
+      <label for="table_name">table_name</label>
+      <p>Type table name here</p>
+      <input
+        className="form-control"
+        type="text"
+        placeholder="Type table name here"
+      />
     </div>
-    )
-}
+  );
+};
 
 export default SingleInput;

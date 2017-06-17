@@ -4,13 +4,13 @@ import QueryDisplay from "./components/QueryDisplay";
 import "./App.css";
 
 class App extends Component {
-  // data() {
-  //   query : '';
-  //   formData: {
-  //     table_name : '',
-  //     start_time:
-  //   }
-  // }
+  data() {
+    query : '';
+    formData: {
+      table_name : ''
+      start_time : ''
+    }
+  }
   render() {
     return (
       <div className="App">
