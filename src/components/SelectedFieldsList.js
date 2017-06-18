@@ -6,11 +6,9 @@ const SelectedFieldsList = (props) => {
     <p key={index}>{data}</p>
     );
   return (
-    <div className="form-group">
-      <label className="control-label">Select Fields</label>
+    <div>
       <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}
-                        onCurrentSelectFieldsEdit={props.onSingleInputEdit}
-                        title="current_select_fields"/>
+                        onSingleInputEdit={props.onSingleInputEdit} />
       {selectedFieldsItems}
     </div>
     )

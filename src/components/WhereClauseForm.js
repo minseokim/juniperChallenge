@@ -3,9 +3,8 @@ import React from 'react';
 const WhereClauseForm = (props) => {
   return (
     <div className="form-group">
+      <p><strong>Where Clause</strong></p>
       <div className="form-group">
-        <p><strong>Where Clause</strong></p>
-
         <label htmlFor="name"className="control-label">Name</label>
         <input className="form-control" placeholder="name"/>
       </div>
@@ -30,7 +29,7 @@ const WhereClauseForm = (props) => {
           <option value="OrSelector">OR</option>
         </select>
       </div>
-      <input type="submit" value="Add" />
+      <button type="button">Add Where Clause</button>
     </div>
     )
 }

@@ -1,19 +1,18 @@
 import React from 'react';
+import SingleInput from './SingleInput';
 
 const SelectFieldsForm = (props) => {
-  let textInput;
+
   return (
       <div className="row">
         <div className="col-md-8">
-          <input
-          className="form-control"
-          placeholder="add select fields here"
-          onChange={event => props.onCurrentSelectFieldsEdit(props.title, event.target.value)}
-          ref={(input) => {textInput = input}}
-          />
+          <SingleInput type="text"
+                        label="current_select_fields"
+                        description="Select Fields"
+                        onSingleInputEdit={props.onSingleInputEdit} />
         </div>
         <div className="col-md-4">
-          <button type="button" onClick={event => props.onSelectFieldsAdd(event, textInput)}>
+          <button type="button" onClick={event => props.onSelectFieldsAdd(event)}>
             Add Field
           </button>
         </div>

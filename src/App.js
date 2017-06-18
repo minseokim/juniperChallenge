@@ -14,7 +14,7 @@ class App extends Component {
         select_fields: [],
         where_clause: [],
         current_select_fields: "",
-        current_where_clause: ""
+        current_where_clause: {}
       }
     };
     this.handleSingleInputEdit = this.handleSingleInputEdit.bind(this);
@@ -29,7 +29,7 @@ class App extends Component {
     });
   }
 
-  handleSelectFieldsAdd(event, input) {
+  handleSelectFieldsAdd(event) {
 
     this.setState(prevState => {
       const newSelectedField = prevState.formData.current_select_fields;
@@ -37,7 +37,7 @@ class App extends Component {
       return prevState;
     });
     //Clear out select fields input after value is added
-    input.value = '';
+    // input.value = '';
   }
 
   render() {
