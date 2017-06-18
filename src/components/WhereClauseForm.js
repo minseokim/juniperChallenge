@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleInput from './SingleInput';
+import DropdownSelectForm from './DropdownSelectForm';
 
 const WhereClauseForm = (props) => {
   return (
@@ -20,26 +21,19 @@ const WhereClauseForm = (props) => {
               formData={props.formData}
               />
 
-      <div className="form-group">
-        <label htmlFor="value" className="control-label">Operator</label>
-        <select className="form-control"
-                value={props.currentOperator}
-                onChange={event => props.onInputChange('currentOperator', event.target.value)}>
-          <option value="=">=</option>
-          <option value="!=">!=</option>
-        </select>
-      </div>
+      <DropdownSelectForm type="currentOperator"
+                          label="Operator"
+                          value={props.currentOperator}
+                          options={['=', '!=']}
+                          onInputChange={props.onInputChange}
+              />
 
-      <div className="form-group">
-        <label htmlFor="value" className="control-label">AND/OR</label>
-        <select className="form-control"
-                value={props.andOrSelected}
-                onChange={event => props.onInputChange('andOrSelected', event.target.value)}>
-          <option value="AND">AND</option>
-          <option value="OR">OR</option>
-        </select>
-      </div>
-
+      <DropdownSelectForm type="andOrSelected"
+                          label="AND/OR"
+                          value={props.andOrSelected}
+                          options={['AND', 'OR']}
+                          onInputChange={props.onInputChange}
+              />
       <button type="button" onClick={props.onWhereClauseAdd}>Add Where Clause</button>
 
     </div>
