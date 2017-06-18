@@ -8,16 +8,16 @@ class App extends Component {
     super();
     this.state = {
       formData: {
-      table_name: "",
-      start_time: "",
-      end_time: "",
-      select_fields: [],
-      where_clause: [],
-      current_select_fields: "",
-      name: "",
-      value: "",
-      currentOperator: "",
-      andOrSelected: ""
+        table_name: "",
+        start_time: "",
+        end_time: "",
+        select_fields: [],
+        where_clause: [],
+        current_select_fields: "",
+        name: "",
+        value: "",
+        currentOperator: "",
+        andOrSelected: ""
       }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,6 +25,8 @@ class App extends Component {
     this.handleSelectFieldsAdd = this.handleSelectFieldsAdd.bind(this);
 
     this.handleWhereClauseAdd = this.handleWhereClauseAdd.bind(this);
+
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   handleInputChange(label, value) {
@@ -75,6 +77,19 @@ class App extends Component {
     });
   }
 
+  handleRemove(index, type) {
+    console.log('X clicked!');
+
+    this.setState((prevState) => {
+      const newSelectFields = prevState.formData.select_fields.filter((current, originalIndex) => {
+        return originalIndex !== index;
+      });
+      console.log('newSelectFields :', newSelectFields);
+      prevState.formData.select_fields = newSelectFields;
+      return prevState;
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -88,8 +103,8 @@ class App extends Component {
                 formData={this.state.formData}
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onInputChange={this.handleInputChange}
-                onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onWhereClauseAdd={this.handleWhereClauseAdd}
+                onRemoveClick={this.handleRemove}
               />
             </div>
             <div className="col-sm-6">

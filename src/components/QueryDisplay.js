@@ -13,8 +13,7 @@ const QueryDisplay = (props) => {
       where_clause: queryData.where_clause
     };
 
-    const query = JSON.stringify(obj, null, 2);
-    return query;
+    return JSON.stringify(obj, null, 2);
   };
 
   return (
