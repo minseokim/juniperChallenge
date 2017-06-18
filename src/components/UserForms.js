@@ -29,13 +29,13 @@ const UserForms = (props) => {
                           onInputChange={props.onInputChange}
                           selectedFieldsData={props.formData.select_fields}
                           formData={props.formData}
-                          onRemoveClick={props.onRemoveClick}
+                          onRemoveSelectFieldClick={props.onRemoveSelectFieldClick}
                         />
 
       <WhereClauseList whereClauseData={props.formData.where_clause}
                           onInputChange={props.onInputChange}
                           onWhereClauseAdd={props.onWhereClauseAdd}
-                          onRemoveClick={props.onRemoveClick}
+                          onRemoveWhereClause={props.onRemoveWhereClause}
                           formData={props.formData}
       />
     </form>

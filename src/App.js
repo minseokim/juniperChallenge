@@ -26,7 +26,9 @@ class App extends Component {
 
     this.handleWhereClauseAdd = this.handleWhereClauseAdd.bind(this);
 
-    this.handleRemove = this.handleRemove.bind(this);
+    this.handleRemoveSelectField = this.handleRemoveSelectField.bind(this);
+
+    this.handleRemoveWhereClause = this.handleRemoveWhereClause.bind(this);
   }
 
   handleInputChange(label, value) {
@@ -77,17 +79,36 @@ class App extends Component {
     });
   }
 
-  handleRemove(index, type) {
-    console.log('X clicked!');
+  handleRemoveSelectField(index) {
 
     this.setState((prevState) => {
       const newSelectFields = prevState.formData.select_fields.filter((current, originalIndex) => {
         return originalIndex !== index;
       });
-      console.log('newSelectFields :', newSelectFields);
       prevState.formData.select_fields = newSelectFields;
       return prevState;
     });
+  }
+
+  handleRemoveWhereClause(blockIndex, index) {
+    console.log('button remove!');
+    //blockIndex denotes to the index of the outermost where_clause array,
+      //index denotes index of each where_clause object in the same sub-array
+    this.setState((prevState) => {
+      const whereClause = prevState.formData.where_clause;
+      const whereClauseBlock = whereClause[blockIndex].slice();
+
+      //Case 1 :
+      if (whereClauseBlock.length > 1) {
+        //Use index to remove from whereClauseBlock
+        whereClause[blockIndex] =  whereClauseBlock.splice(1, index);
+      } else {
+        //Case 2 :
+        prevState.formData.where_clause = whereClause.splice(1, blockIndex);
+      }
+
+      return prevState;
+    })
   }
 
   render() {
@@ -104,7 +125,8 @@ class App extends Component {
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onInputChange={this.handleInputChange}
                 onWhereClauseAdd={this.handleWhereClauseAdd}
-                onRemoveClick={this.handleRemove}
+                onRemoveSelectFieldClick={this.handleRemoveSelectField}
+                onRemoveWhereClause={this.handleRemoveWhereClause}
               />
             </div>
             <div className="col-sm-6">

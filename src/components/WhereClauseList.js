@@ -2,6 +2,7 @@ import React from "react";
 import WhereClauseForm from "./WhereClauseForm";
 
 const WhereClauseList = props => {
+
   const whereClauseListItems = props.whereClauseData.map((data, blockIndex) => {
     return data.map((currentClause, index) => {
       return (
@@ -13,7 +14,7 @@ const WhereClauseList = props => {
             title="Remove this where clause data"
             className="col-xs-12 btn btn-danger"
             type="button"
-            onClick={() => props.onRemoveClick(blockIndex, "remove")}
+            onClick={() => props.onRemoveWhereClause(blockIndex, index)}
           >
             <i className="glyphicon glyphicon-remove" />
           </button>

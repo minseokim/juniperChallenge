@@ -8,7 +8,7 @@ const SelectedFieldsList = (props) => {
       <button title="Remove this selected field"
               className="col-xs-12 btn btn-danger"
               type="button"
-              onClick={() => props.onRemoveClick(index, "button")}
+              onClick={() => props.onRemoveSelectFieldClick(index, "button")}
               >
         <i className="glyphicon glyphicon-remove"></i>
       </button>
