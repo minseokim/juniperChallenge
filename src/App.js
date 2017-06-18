@@ -29,11 +29,12 @@ class App extends Component {
     });
   }
 
-  handleSelectFieldsAdd(event) {
+  handleSelectFieldsAdd(event, input) {
 
     this.setState(prevState => {
       const newSelectedField = prevState.formData.current_select_fields;
       prevState.formData.select_fields.push(newSelectedField);
+      prevState.formData.current_select_fields = "";
       return prevState;
     });
     //Clear out select fields input after value is added

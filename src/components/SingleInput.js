@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+
 
 const SingleInput = props => {
 let textInputRef;
@@ -9,6 +10,7 @@ let textInputRef;
         className="form-control"
         type={props.type}
         placeholder={props.description}
+        value={props.formData[props.label]}
         onChange={event => props.onSingleInputEdit(props.label, event.target.value)}
         ref={(input) => {textInputRef = input}}
       />

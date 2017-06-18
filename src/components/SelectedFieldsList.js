@@ -8,7 +8,9 @@ const SelectedFieldsList = (props) => {
   return (
     <div>
       <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}
-                        onSingleInputEdit={props.onSingleInputEdit} />
+                        onSingleInputEdit={props.onSingleInputEdit}
+                        formData={props.formData}
+                        />
       {selectedFieldsItems}
     </div>
     )

@@ -9,7 +9,9 @@ const SelectFieldsForm = (props) => {
           <SingleInput type="text"
                         label="current_select_fields"
                         description="Select Fields"
-                        onSingleInputEdit={props.onSingleInputEdit} />
+                        onSingleInputEdit={props.onSingleInputEdit}
+                        formData={props.formData}
+                        />
         </div>
         <div className="col-md-4">
           <button type="button" onClick={event => props.onSelectFieldsAdd(event)}>

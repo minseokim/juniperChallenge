@@ -1,4 +1,7 @@
 import React from 'react';
+import SingleInput from './SingleInput';
+
+
 
 const WhereClauseForm = (props) => {
   return (
