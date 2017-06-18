@@ -12,7 +12,6 @@ class App extends Component {
       end_time: "",
       select_fields: [],
       where_clause: [],
-      current_select_fields: "",
       name: "",
       value: "",
       currentOperator: "=",
@@ -36,12 +35,9 @@ class App extends Component {
     });
   }
 
-  handleSelectFieldsAdd() {
+  handleSelectFieldsAdd(currentSelectField) {
     this.setState(prevState => {
-      const newSelectedField = prevState.current_select_fields;
-      prevState.select_fields.push(newSelectedField);
-      //Clear out select fields input after value is added
-      prevState.current_select_fields = "";
+      prevState.select_fields.push(currentSelectField);
       return prevState;
     });
   }
@@ -121,7 +117,6 @@ class App extends Component {
                 table_name = {this.state.table_name}
                 start_time = {this.state.start_time}
                 end_time = {this.state.end_time}
-                current_select_fields = {this.state.current_select_fields}
                 select_fields={this.state.select_fields}
                 name={this.state.name}
                 value={this.state.value}

@@ -13,13 +13,13 @@ const QueryDisplay = (props) => {
       where_clause: props.whereClause
     };
 
-    return JSON.stringify(obj, null, 2);
+    return JSON.stringify(obj, null, 4);
   };
 
   return (
-    <div>
-      Display Generated Query Here
-      <pre><code>{generateQuery()}</code></pre>
+    <div className="queryDisplay">
+      <h2>Generated Query</h2>
+      <pre className="queryDisplay__codeBlock"><code>{generateQuery()}</code></pre>
     </div>
     )
 }

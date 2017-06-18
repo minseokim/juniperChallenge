@@ -13,23 +13,23 @@ const UserForms = (props) => {
                     value={props.table_name}
                     description="Table Name"
                     onInputChange={props.onInputChange}
+                    className=""
                     />
-      <SingleInput type="number"
+      <SingleInput type="date"
                     label="start_time"
                     value={props.start_time}
                     description="Start Time in UNIX Epoch format"
                     onInputChange={props.onInputChange}
                     />
-      <SingleInput type="number"
+      <SingleInput type="date"
                     label="end_time"
                     value={props.end_time}
                     description="End Time in UNIX Epoch format"
                     onInputChange={props.onInputChange}
                     />
-      <SelectedFieldsList value={props.current_select_fields}
+      <SelectedFieldsList selectedFieldsData={props.select_fields}
                           onSelectFieldsAdd={props.onSelectFieldsAdd}
                           onInputChange={props.onInputChange}
-                          selectedFieldsData={props.select_fields}
                           onRemoveSelectFieldClick={props.onRemoveSelectFieldClick}
                         />
 

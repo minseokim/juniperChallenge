@@ -6,7 +6,7 @@ const WhereClauseList = props => {
   const whereClauseListItems = props.whereClauseData.map((data, blockIndex) => {
     return data.map((currentClause, index) => {
       return (
-        <div key={index}>
+        <div key={currentClause}>
           <p>{currentClause.name}</p>
           <p>{currentClause.value}</p>
           <p>{currentClause.operator}</p>
