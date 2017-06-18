@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SelectFields = (props) => {
+const SelectFieldsForm = (props) => {
   return (
     <div className="form-group">
       <label className="control-label">Select Fields</label>
@@ -9,6 +9,7 @@ const SelectFields = (props) => {
           <input
           className="form-control"
           placeholder="add select fields here"
+          onChange={event => props.onCurrentSelectFieldsEdit(props.title, event.target.value)}
           />
         </div>
         <div className="col-md-4">
@@ -21,4 +22,4 @@ const SelectFields = (props) => {
     )
 }
 
-export default SelectFields;
+export default SelectFieldsForm;

@@ -1,6 +1,7 @@
 import React from 'react';
 import SingleInput from './SingleInput';
-import SelectFields from './SelectFields';
+import SelectedFieldsList from './SelectedFieldsList';
+import SelectFieldsForm from './SelectFieldsForm';
 import WhereClause from './WhereClause';
 
 const UserForms = (props) => {
@@ -18,7 +19,9 @@ const UserForms = (props) => {
                     label="end_time"
                     description="End Time in UNIX Epoch format"
                     onSingleInputEdit={props.onSingleInputEdit}/>
-      <SelectFields />
+      <SelectedFieldsList onSelectFieldsAdd={props.onSelectFieldsAdd}
+                          onSingleInputEdit={props.onSingleInputEdit}
+                        selectedFieldsData={props.formData.select_fields}/>
       <WhereClause />
     </form>
     )

@@ -7,17 +7,23 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      query: "",
-      table_name: "",
-      start_time: "",
-      end_time: ""
+      formData : {
+        table_name: "",
+        start_time: "",
+        end_time: "",
+        select_fields: [],
+        where_clause : [],
+        current_select_fields: "",
+        current_where_clause : ""
+      }
     };
     this.handleSingleInputEdit = this.handleSingleInputEdit.bind(this);
   }
 
   handleSingleInputEdit(label, value) {
-    this.setState({
-      [label]: value
+    this.setState((prevState) => {
+      prevState.formData[label] = value;
+      return prevState
     });
   }
 
@@ -31,8 +37,9 @@ class App extends Component {
           <div className="row">
             <div className="col-sm-6">
               <UserForms
-                data={this.state}
+                onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onSingleInputEdit={this.handleSingleInputEdit}
+                formData={this.state.formData}
               />
             </div>
             <div className="col-sm-6">
