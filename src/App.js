@@ -8,8 +8,8 @@ class App extends Component {
     super();
     this.state = {
       table_name: "",
-      start_time: "",
-      end_time: "",
+      start_time: 0,
+      end_time: 0,
       select_fields: [],
       where_clause: []
     };
@@ -24,9 +24,11 @@ class App extends Component {
     this.handleRemoveWhereClause = this.handleRemoveWhereClause.bind(this);
   }
 
-  handleInputChange(label, value) {
+  handleInputChange(label, value, type) {
+    let updatedValue = type === "number" ? Number.parseInt(value) : value;
+
     this.setState(prevState => {
-      prevState[label] = value;
+      prevState[label] = updatedValue;
       return prevState;
     });
   }

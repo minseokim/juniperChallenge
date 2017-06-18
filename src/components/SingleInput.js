@@ -10,19 +10,19 @@ const SingleInput = props => {
         type={props.type}
         placeholder={props.description}
         value={props.value}
-        onChange={event => props.onInputChange(props.label, event.target.value)}
+        onChange={event => props.onInputChange(props.label, event.target.value, props.type)}
       />
     </div>
   );
 };
 
 SingleInput.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string, PropTypes.number
-  ]),
-  description: PropTypes.string,
-  onInputChange: PropTypes.func
+  ]).isRequired,
+  description: PropTypes.string.isRequired,
+  onInputChange: PropTypes.func.isRequired
 };
 
 export default SingleInput;

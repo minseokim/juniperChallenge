@@ -24,9 +24,10 @@ const SelectFieldsForm = (props) => {
 }
 
 SelectFieldsForm.propTypes = {
-  value : PropTypes.string,
-  onSelectFieldsAdd : PropTypes.func,
-  onInputChange : PropTypes.func
+  value : PropTypes.string.isRequired,
+  onSelectFieldsAdd : PropTypes.func.isRequired,
+  onInputChange : PropTypes.func.isRequired,
+  clearInput : PropTypes.func.isRequired
 }
 
 export default SelectFieldsForm;

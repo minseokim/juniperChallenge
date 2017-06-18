@@ -26,8 +26,8 @@ const QueryDisplay = (props) => {
 
 QueryDisplay.propTypes = {
   tableName: PropTypes.string,
-  startTime: PropTypes.string,
-  endTime: PropTypes.string,
+  startTime: PropTypes.number,
+  endTime: PropTypes.number,
   selectFields: PropTypes.array,
   whereClause: PropTypes.array
 }
