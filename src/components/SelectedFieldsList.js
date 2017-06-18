@@ -15,7 +15,6 @@ const SelectedFieldsList = (props) => {
     </div>
     );
 
-
   return (
     <div>
       <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}

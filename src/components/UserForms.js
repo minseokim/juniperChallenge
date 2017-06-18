@@ -2,7 +2,7 @@ import React from 'react';
 import SingleInput from './SingleInput';
 import SelectedFieldsList from './SelectedFieldsList';
 import SelectFieldsForm from './SelectFieldsForm';
-import WhereClauseForm from './WhereClauseForm';
+import WhereClauseList from './WhereClauseList';
 
 const UserForms = (props) => {
   return (
@@ -27,15 +27,17 @@ const UserForms = (props) => {
                     />
       <SelectedFieldsList onSelectFieldsAdd={props.onSelectFieldsAdd}
                           onInputChange={props.onInputChange}
-                        selectedFieldsData={props.formData.select_fields}
-                        formData={props.formData}
-                        onRemoveClick={props.onRemoveClick}
+                          selectedFieldsData={props.formData.select_fields}
+                          formData={props.formData}
+                          onRemoveClick={props.onRemoveClick}
                         />
 
-      <WhereClauseForm formData={props.formData}
-                        onInputChange={props.onInputChange}
-                        onWhereClauseAdd={props.onWhereClauseAdd}
-                        />
+      <WhereClauseList whereClauseData={props.formData.where_clause}
+                          onInputChange={props.onInputChange}
+                          onWhereClauseAdd={props.onWhereClauseAdd}
+                          onRemoveClick={props.onRemoveClick}
+                          formData={props.formData}
+      />
     </form>
     )
 }

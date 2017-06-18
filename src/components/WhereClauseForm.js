@@ -3,7 +3,6 @@ import SingleInput from './SingleInput';
 
 const WhereClauseForm = (props) => {
   return (
-
     <div>
       <p><strong>Where Clause</strong></p>
 
