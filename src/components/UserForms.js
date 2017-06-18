@@ -6,7 +6,7 @@ import WhereClause from './WhereClause';
 
 const UserForms = (props) => {
   return (
-    <form>
+    <form onSubmit={props.onFormSubmit}>
       <SingleInput type="text"
                     label="table_name"
                     description="Table Name"
