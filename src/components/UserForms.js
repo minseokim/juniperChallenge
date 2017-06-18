@@ -39,8 +39,7 @@ const UserForms = (props) => {
                         onInputChange={props.onInputChange}
                         onWhereClauseAdd={props.onWhereClauseAdd}
                         onRemoveWhereClause={props.onRemoveWhereClause}
-
-      />
+                        />
     </form>
     )
 }

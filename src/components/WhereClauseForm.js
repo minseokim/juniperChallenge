@@ -35,7 +35,10 @@ const WhereClauseForm = (props) => {
                           options={['AND', 'OR']}
                           onInputChange={props.onInputChange}
               />
-      <button type="button" onClick={props.onWhereClauseAdd}>Add Where Clause</button>
+      <button type="button"
+              onClick={() => { props.onWhereClauseAdd(props.name, props.value, props.currentOperator, props.andOrSelected) }}>
+              Add Where Clause
+      </button>
 
     </div>
     )

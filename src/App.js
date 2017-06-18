@@ -11,11 +11,7 @@ class App extends Component {
       start_time: "",
       end_time: "",
       select_fields: [],
-      where_clause: [],
-      name: "",
-      value: "",
-      currentOperator: "=",
-      andOrSelected: "AND"
+      where_clause: []
     };
     this.handleInputChange = this.handleInputChange.bind(this);
 
@@ -42,16 +38,15 @@ class App extends Component {
     });
   }
 
-  handleWhereClauseAdd() {
+  handleWhereClauseAdd(name, value, operator, andOrSelected) {
     this.setState(prevState => {
-      const andOrSelected = prevState.andOrSelected;
       const whereClause = prevState.where_clause;
 
       //create a new object with new where clause properties
       const currentWhereClause = {
-        name: prevState.name,
-        value: prevState.value,
-        operator: prevState.currentOperator
+        name: name,
+        value: value,
+        operator: operator
       };
 
       //Case 1 : where_clause is empty, or the selector is 'OR'
@@ -84,22 +79,19 @@ class App extends Component {
   }
 
   handleRemoveWhereClause(blockIndex, index) {
-    console.log('button remove!');
-    //blockIndex denotes to the index of the outermost where_clause array,
-      //index denotes index of each where_clause object in the same sub-array
+    // blockIndex denotes to the index of the outermost where_clause array,
+    //   index denotes index of each where_clause object in the same sub-array
     this.setState((prevState) => {
       const whereClause = prevState.where_clause;
-      const whereClauseBlock = whereClause[blockIndex].slice();
-
+      const whereClauseBlock = whereClause[blockIndex];
       //Case 1 :
       if (whereClauseBlock.length > 1) {
         //Use index to remove from whereClauseBlock
-        whereClause[blockIndex] =  whereClauseBlock.splice(1, index);
+        whereClauseBlock.splice(index, 1);
       } else {
         //Case 2 :
-        prevState.where_clause = whereClause.splice(1, blockIndex);
+        whereClause.splice(blockIndex, 1);
       }
-
       return prevState;
     })
   }
@@ -118,8 +110,6 @@ class App extends Component {
                 start_time = {this.state.start_time}
                 end_time = {this.state.end_time}
                 select_fields={this.state.select_fields}
-                name={this.state.name}
-                value={this.state.value}
                 where_clause = {this.state.where_clause}
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onInputChange={this.handleInputChange}
