@@ -6,11 +6,11 @@ const SelectFieldsForm = (props) => {
   return (
       <div className="row">
         <div className="col-md-8">
-          <SingleInput type="text"
+          <SingleInput  type="text"
                         label="current_select_fields"
+                        value={props.value}
                         description="Select Fields"
                         onInputChange={props.onInputChange}
-                        formData={props.formData}
                         />
         </div>
         <div className="col-md-4">

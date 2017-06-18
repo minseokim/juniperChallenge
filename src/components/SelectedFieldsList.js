@@ -17,9 +17,9 @@ const SelectedFieldsList = (props) => {
 
   return (
     <div>
-      <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}
+      <SelectFieldsForm value={props.value}
+                        onSelectFieldsAdd={props.onSelectFieldsAdd}
                         onInputChange={props.onInputChange}
-                        formData={props.formData}
                         />
       {selectedFieldsItems}
     </div>

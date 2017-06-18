@@ -3,14 +3,13 @@ import React from 'react';
 const QueryDisplay = (props) => {
 
   const generateQuery = () => {
-    const queryData = props.queryData;
 
     const obj = {
-      table_name : queryData.table_name,
-      start_time: queryData.start_time,
-      end_time: queryData.end_time,
-      select_fields: queryData.select_fields,
-      where_clause: queryData.where_clause
+      table_name : props.tableName,
+      start_time: props.startTime,
+      end_time: props.endTime,
+      select_fields: props.selectFields,
+      where_clause: props.whereClause
     };
 
     return JSON.stringify(obj, null, 2);

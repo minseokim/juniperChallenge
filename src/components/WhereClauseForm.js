@@ -9,16 +9,16 @@ const WhereClauseForm = (props) => {
 
       <SingleInput type="text"
               label="name"
+              value={props.name}
               description="Where Clause name"
               onInputChange={props.onInputChange}
-              formData={props.formData}
               />
 
       <SingleInput type="text"
               label="value"
+              value={props.value}
               description="Where Clause value"
               onInputChange={props.onInputChange}
-              formData={props.formData}
               />
 
       <DropdownSelectForm type="currentOperator"

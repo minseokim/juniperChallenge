@@ -10,7 +10,7 @@ const SingleInput = props => {
         className="form-control"
         type={props.type}
         placeholder={props.description}
-        value={props.formData[props.label]}
+        value={props.value}
         onChange={event => props.onInputChange(props.label, event.target.value)}
       />
     </div>

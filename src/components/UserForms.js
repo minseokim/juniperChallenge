@@ -9,34 +9,36 @@ const UserForms = (props) => {
     <form>
       <SingleInput type="text"
                     label="table_name"
+                    value={props.table_name}
                     description="Table Name"
                     onInputChange={props.onInputChange}
-                    formData={props.formData}
                     />
       <SingleInput type="datetime"
                     label="start_time"
+                    value={props.start_time}
                     description="Start Time in UNIX Epoch format"
                     onInputChange={props.onInputChange}
-                    formData={props.formData}
                     />
       <SingleInput type="datetime"
                     label="end_time"
+                    value={props.end_time}
                     description="End Time in UNIX Epoch format"
                     onInputChange={props.onInputChange}
-                    formData={props.formData}
                     />
-      <SelectedFieldsList onSelectFieldsAdd={props.onSelectFieldsAdd}
+      <SelectedFieldsList value={props.current_select_fields}
+                          onSelectFieldsAdd={props.onSelectFieldsAdd}
                           onInputChange={props.onInputChange}
-                          selectedFieldsData={props.formData.select_fields}
-                          formData={props.formData}
+                          selectedFieldsData={props.select_fields}
                           onRemoveSelectFieldClick={props.onRemoveSelectFieldClick}
                         />
 
-      <WhereClauseList whereClauseData={props.formData.where_clause}
-                          onInputChange={props.onInputChange}
-                          onWhereClauseAdd={props.onWhereClauseAdd}
-                          onRemoveWhereClause={props.onRemoveWhereClause}
-                          formData={props.formData}
+      <WhereClauseList  whereClauseName={props.name}
+                        whereClauseValue={props.value}
+                        whereClauseData={props.where_clause}
+                        onInputChange={props.onInputChange}
+                        onWhereClauseAdd={props.onWhereClauseAdd}
+                        onRemoveWhereClause={props.onRemoveWhereClause}
+
       />
     </form>
     )

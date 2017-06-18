@@ -2,7 +2,6 @@ import React from "react";
 import WhereClauseForm from "./WhereClauseForm";
 
 const WhereClauseList = props => {
-
   const whereClauseListItems = props.whereClauseData.map((data, blockIndex) => {
     return data.map((currentClause, index) => {
       return (
@@ -26,9 +25,10 @@ const WhereClauseList = props => {
   return (
     <div>
       <WhereClauseForm
+        name={props.whereClauseName}
+        value={props.whereClauseValue}
         onWhereClauseAdd={props.onWhereClauseAdd}
         onInputChange={props.onInputChange}
-        formData={props.formData}
       />
       {whereClauseListItems}
     </div>

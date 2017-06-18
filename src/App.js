@@ -1,24 +1,23 @@
 import React, { Component } from "react";
 import UserForms from "./components/UserForms";
 import QueryDisplay from "./components/QueryDisplay";
+import PropTypes from 'prop-types';
 import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      formData: {
-        table_name: "",
-        start_time: "",
-        end_time: "",
-        select_fields: [],
-        where_clause: [],
-        current_select_fields: "",
-        name: "",
-        value: "",
-        currentOperator: "",
-        andOrSelected: ""
-      }
+      table_name: "",
+      start_time: "",
+      end_time: "",
+      select_fields: [],
+      where_clause: [],
+      current_select_fields: "",
+      name: "",
+      value: "",
+      currentOperator: "",
+      andOrSelected: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
 
@@ -33,32 +32,31 @@ class App extends Component {
 
   handleInputChange(label, value) {
     this.setState(prevState => {
-      prevState.formData[label] = value;
+      prevState[label] = value;
       return prevState;
     });
   }
 
   handleSelectFieldsAdd() {
     this.setState(prevState => {
-      const newSelectedField = prevState.formData.current_select_fields;
-      prevState.formData.select_fields.push(newSelectedField);
+      const newSelectedField = prevState.current_select_fields;
+      prevState.select_fields.push(newSelectedField);
       //Clear out select fields input after value is added
-      prevState.formData.current_select_fields = "";
+      prevState.current_select_fields = "";
       return prevState;
     });
   }
 
   handleWhereClauseAdd() {
     this.setState(prevState => {
-      const formData = prevState.formData;
-      const andOrSelected = formData.andOrSelected;
-      const whereClause = formData.where_clause;
+      const andOrSelected = prevState.andOrSelected;
+      const whereClause = prevState.where_clause;
 
       //create a new object with new where clause properties
       const currentWhereClause = {
-        name: formData.name,
-        value: formData.value,
-        operator: formData.currentOperator
+        name: prevState.name,
+        value: prevState.value,
+        operator: prevState.currentOperator
       };
 
       //Case 1 : where_clause is empty, or the selector is 'OR'
@@ -82,10 +80,10 @@ class App extends Component {
   handleRemoveSelectField(index) {
 
     this.setState((prevState) => {
-      const newSelectFields = prevState.formData.select_fields.filter((current, originalIndex) => {
+      const newSelectFields = prevState.select_fields.filter((current, originalIndex) => {
         return originalIndex !== index;
       });
-      prevState.formData.select_fields = newSelectFields;
+      prevState.select_fields = newSelectFields;
       return prevState;
     });
   }
@@ -95,7 +93,7 @@ class App extends Component {
     //blockIndex denotes to the index of the outermost where_clause array,
       //index denotes index of each where_clause object in the same sub-array
     this.setState((prevState) => {
-      const whereClause = prevState.formData.where_clause;
+      const whereClause = prevState.where_clause;
       const whereClauseBlock = whereClause[blockIndex].slice();
 
       //Case 1 :
@@ -104,7 +102,7 @@ class App extends Component {
         whereClause[blockIndex] =  whereClauseBlock.splice(1, index);
       } else {
         //Case 2 :
-        prevState.formData.where_clause = whereClause.splice(1, blockIndex);
+        prevState.where_clause = whereClause.splice(1, blockIndex);
       }
 
       return prevState;
@@ -121,7 +119,14 @@ class App extends Component {
           <div className="row">
             <div className="col-sm-6">
               <UserForms
-                formData={this.state.formData}
+                table_name = {this.state.table_name}
+                start_time = {this.state.start_time}
+                end_time = {this.state.end_time}
+                current_select_fields = {this.state.current_select_fields}
+                select_fields={this.state.select_fields}
+                name={this.state.name}
+                value={this.state.value}
+                where_clause = {this.state.where_clause}
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onInputChange={this.handleInputChange}
                 onWhereClauseAdd={this.handleWhereClauseAdd}
@@ -131,8 +136,11 @@ class App extends Component {
             </div>
             <div className="col-sm-6">
               <QueryDisplay
-                queryData={this.state.formData}
-                query={this.state.query}
+                tableName={this.state.table_name}
+                startTime={this.state.start_time}
+                endTime={this.state.end_time}
+                selectFields={this.state.select_fields}
+                whereClause={this.state.where_clause}
               />
             </div>
           </div>
@@ -141,5 +149,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
