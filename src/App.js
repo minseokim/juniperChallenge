@@ -29,13 +29,15 @@ class App extends Component {
     });
   }
 
-  handleSelectFieldsAdd(event) {
-    event.preventDefault();
+  handleSelectFieldsAdd(event, input) {
+
     this.setState(prevState => {
       const newSelectedField = prevState.formData.current_select_fields;
       prevState.formData.select_fields.push(newSelectedField);
       return prevState;
     });
+    //Clear out select fields input after value is added
+    input.value = '';
   }
 
   render() {
