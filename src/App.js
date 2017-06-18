@@ -8,23 +8,21 @@ class App extends Component {
     super();
     this.state = {
       formData: {
-        table_name: "",
-        start_time: "",
-        end_time: "",
-        select_fields: [],
-        where_clause: [],
-        current_select_fields: "",
-        name: "",
-        value: "",
-        currentOperator: "",
-        andOrSelected: ""
+      table_name: "",
+      start_time: "",
+      end_time: "",
+      select_fields: [],
+      where_clause: [],
+      current_select_fields: "",
+      name: "",
+      value: "",
+      currentOperator: "",
+      andOrSelected: ""
       }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
 
     this.handleSelectFieldsAdd = this.handleSelectFieldsAdd.bind(this);
-
-    this.handleDropDownChange = this.handleDropDownChange.bind(this);
 
     this.handleWhereClauseAdd = this.handleWhereClauseAdd.bind(this);
   }
@@ -42,13 +40,6 @@ class App extends Component {
       prevState.formData.select_fields.push(newSelectedField);
       //Clear out select fields input after value is added
       prevState.formData.current_select_fields = "";
-      return prevState;
-    });
-  }
-
-  handleDropDownChange(label, value) {
-    this.setState(prevState => {
-      prevState.formData[label] = value;
       return prevState;
     });
   }
@@ -102,7 +93,10 @@ class App extends Component {
               />
             </div>
             <div className="col-sm-6">
-              <QueryDisplay />
+              <QueryDisplay
+                queryData={this.state.formData}
+                query={this.state.query}
+              />
             </div>
           </div>
         </section>
