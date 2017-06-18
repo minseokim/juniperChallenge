@@ -1,5 +1,6 @@
 import React from "react";
 import WhereClauseForm from "./WhereClauseForm";
+import PropTypes from 'prop-types';
 
 const WhereClauseList = props => {
   const whereClauseListItems = props.whereClauseData.map((data, blockIndex) => {
@@ -34,5 +35,14 @@ const WhereClauseList = props => {
     </div>
   );
 };
+
+WhereClauseList.propTypes = {
+  whereClauseName : PropTypes.string,
+  whereClauseValue : PropTypes.string,
+  WhereClauseData : PropTypes.array,
+  onInputChange: PropTypes.func,
+  onWhereClauseAdd : PropTypes.func,
+  onRemoveWhereClause : PropTypes.func
+}
 
 export default WhereClauseList;

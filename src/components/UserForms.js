@@ -3,6 +3,7 @@ import SingleInput from './SingleInput';
 import SelectedFieldsList from './SelectedFieldsList';
 import SelectFieldsForm from './SelectFieldsForm';
 import WhereClauseList from './WhereClauseList';
+import PropTypes from 'prop-types';
 
 const UserForms = (props) => {
   return (
@@ -13,13 +14,13 @@ const UserForms = (props) => {
                     description="Table Name"
                     onInputChange={props.onInputChange}
                     />
-      <SingleInput type="datetime"
+      <SingleInput type="number"
                     label="start_time"
                     value={props.start_time}
                     description="Start Time in UNIX Epoch format"
                     onInputChange={props.onInputChange}
                     />
-      <SingleInput type="datetime"
+      <SingleInput type="number"
                     label="end_time"
                     value={props.end_time}
                     description="End Time in UNIX Epoch format"
@@ -44,4 +45,19 @@ const UserForms = (props) => {
     )
 }
 
+UserForms.propTypes = {
+  table_name : PropTypes.string,
+  start_time: PropTypes.string,
+  end_time: PropTypes.string,
+  current_select_fields: PropTypes.string,
+  select_fields: PropTypes.array,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  where_clause: PropTypes.array,
+  onSelectFieldsAdd: PropTypes.func,
+  onInputChange: PropTypes.func,
+  onWhereClauseAdd: PropTypes.func,
+  onRemoveSelectFieldClick: PropTypes.func,
+  onRemoveWhereClause: PropTypes.func
+}
 export default UserForms;

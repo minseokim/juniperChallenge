@@ -1,6 +1,7 @@
 import React from 'react';
 import SingleInput from './SingleInput';
 import DropdownSelectForm from './DropdownSelectForm';
+import PropTypes from 'prop-types';
 
 const WhereClauseForm = (props) => {
   return (
@@ -38,6 +39,13 @@ const WhereClauseForm = (props) => {
 
     </div>
     )
+}
+
+WhereClauseForm.propTypes = {
+  name : PropTypes.string,
+  value : PropTypes.string,
+  onWhereClauseAdd : PropTypes.func,
+  onInputChange : PropTypes.func
 }
 
 export default WhereClauseForm;

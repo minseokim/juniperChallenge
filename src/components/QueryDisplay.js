@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const QueryDisplay = (props) => {
 
@@ -21,6 +22,14 @@ const QueryDisplay = (props) => {
       <pre><code>{generateQuery()}</code></pre>
     </div>
     )
+}
+
+QueryDisplay.propTypes = {
+  tableName: PropTypes.string,
+  startTime: PropTypes.string,
+  endTime: PropTypes.string,
+  selectFields: PropTypes.array,
+  whereClause: PropTypes.array
 }
 
 export default QueryDisplay;

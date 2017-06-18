@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import UserForms from "./components/UserForms";
 import QueryDisplay from "./components/QueryDisplay";
-import PropTypes from 'prop-types';
 import "./App.css";
 
 class App extends Component {
@@ -16,8 +15,8 @@ class App extends Component {
       current_select_fields: "",
       name: "",
       value: "",
-      currentOperator: "",
-      andOrSelected: ""
+      currentOperator: "=",
+      andOrSelected: "AND"
     };
     this.handleInputChange = this.handleInputChange.bind(this);
 
@@ -149,6 +148,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

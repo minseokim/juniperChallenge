@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleInput from './SingleInput';
+import PropTypes from 'prop-types';
 
 const SelectFieldsForm = (props) => {
 
@@ -20,6 +21,12 @@ const SelectFieldsForm = (props) => {
         </div>
       </div>
     )
+}
+
+SelectFieldsForm.propTypes = {
+  value : PropTypes.string,
+  onSelectFieldsAdd : PropTypes.func,
+  onInputChange : PropTypes.func
 }
 
 export default SelectFieldsForm;
