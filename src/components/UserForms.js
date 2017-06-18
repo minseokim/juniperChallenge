@@ -33,6 +33,7 @@ const UserForms = (props) => {
 
       <WhereClauseForm formData={props.formData}
                         onInputChange={props.onInputChange}
+                        onWhereClauseAdd={props.onWhereClauseAdd}
                         />
     </form>
     )

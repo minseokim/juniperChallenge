@@ -41,7 +41,7 @@ const WhereClauseForm = (props) => {
         </select>
       </div>
 
-      <button type="button">Add Where Clause</button>
+      <button type="button" onClick={props.onWhereClauseAdd}>Add Where Clause</button>
 
     </div>
     )

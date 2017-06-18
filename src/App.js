@@ -25,6 +25,8 @@ class App extends Component {
     this.handleSelectFieldsAdd = this.handleSelectFieldsAdd.bind(this);
 
     this.handleDropDownChange = this.handleDropDownChange.bind(this);
+
+    this.handleWhereClauseAdd = this.handleWhereClauseAdd.bind(this);
   }
 
   handleInputChange(label, value) {
@@ -51,6 +53,37 @@ class App extends Component {
     });
   }
 
+  handleWhereClauseAdd() {
+    this.setState(prevState => {
+      const formData = prevState.formData;
+      const andOrSelected = formData.andOrSelected;
+      const whereClause = formData.where_clause;
+
+      //create a new object with new where clause properties
+      const currentWhereClause = {
+        name: formData.name,
+        value: formData.value,
+        operator: formData.currentOperator
+      };
+
+      //Case 1 : where_clause is empty, or the selector is 'OR'
+      if (whereClause.length === 0 || andOrSelected === "OR") {
+        //Initialize a new array and push to whereClause
+        whereClause.push([currentWhereClause]);
+
+        //Case 2 : where_clause is already populated, and the selector is 'AND'
+      } else if (andOrSelected === "AND") {
+        if (whereClause && whereClause.length > 0) {
+          const lastAdded = whereClause[whereClause.length - 1];
+
+          //push to lastAdded
+          lastAdded.push(currentWhereClause);
+        }
+      }
+      return prevState;
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -61,17 +94,15 @@ class App extends Component {
           <div className="row">
             <div className="col-sm-6">
               <UserForms
+                formData={this.state.formData}
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onInputChange={this.handleInputChange}
-                formData={this.state.formData}
-                currentWhereClauseData={
-                  this.state.formData.current_where_clause
-                }
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
+                onWhereClauseAdd={this.handleWhereClauseAdd}
               />
             </div>
             <div className="col-sm-6">
-              <QueryDisplay query={this.state.query} />
+              <QueryDisplay />
             </div>
           </div>
         </section>
