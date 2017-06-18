@@ -14,7 +14,9 @@ class App extends Component {
         select_fields: [],
         where_clause: [],
         current_select_fields: "",
-        current_where_clause: {}
+        name: "",
+        value: "",
+        operator : ""
       }
     };
     this.handleSingleInputEdit = this.handleSingleInputEdit.bind(this);
@@ -29,16 +31,18 @@ class App extends Component {
     });
   }
 
-  handleSelectFieldsAdd(event, input) {
-
+  handleSelectFieldsAdd() {
     this.setState(prevState => {
       const newSelectedField = prevState.formData.current_select_fields;
       prevState.formData.select_fields.push(newSelectedField);
+      //Clear out select fields input after value is added
       prevState.formData.current_select_fields = "";
       return prevState;
     });
-    //Clear out select fields input after value is added
-    // input.value = '';
+  }
+
+  handleWhereClauseFormEdit(event) {
+
   }
 
   render() {
@@ -54,6 +58,7 @@ class App extends Component {
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onSingleInputEdit={this.handleSingleInputEdit}
                 formData={this.state.formData}
+                currentWhereClauseData={this.state.formData.current_where_clause}
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
               />
             </div>

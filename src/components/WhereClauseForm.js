@@ -1,21 +1,25 @@
 import React from 'react';
 import SingleInput from './SingleInput';
 
-
-
 const WhereClauseForm = (props) => {
   return (
-    <div className="form-group">
-      <p><strong>Where Clause</strong></p>
-      <div className="form-group">
-        <label htmlFor="name"className="control-label">Name</label>
-        <input className="form-control" placeholder="name"/>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="value" className="control-label">Value</label>
-        <input className="form-control" placeholder="value"/>
-      </div>
+    <div>
+      <p><strong>Where Clause</strong></p>
+
+      <SingleInput type="text"
+              label="name"
+              description="Where Clause name"
+              onSingleInputEdit={props.onSingleInputEdit}
+              formData={props.formData}
+              />
+
+      <SingleInput type="text"
+              label="value"
+              description="Where Clause value"
+              onSingleInputEdit={props.onSingleInputEdit}
+              formData={props.formData}
+              />
 
       <div className="form-group">
         <label htmlFor="value" className="control-label">Operator</label>
@@ -33,6 +37,7 @@ const WhereClauseForm = (props) => {
         </select>
       </div>
       <button type="button">Add Where Clause</button>
+
     </div>
     )
 }

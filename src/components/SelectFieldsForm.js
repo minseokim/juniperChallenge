@@ -14,7 +14,7 @@ const SelectFieldsForm = (props) => {
                         />
         </div>
         <div className="col-md-4">
-          <button type="button" onClick={event => props.onSelectFieldsAdd(event)}>
+          <button type="button" onClick={props.onSelectFieldsAdd}>
             Add Field
           </button>
         </div>

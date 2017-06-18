@@ -29,7 +29,9 @@ const UserForms = (props) => {
                           onSingleInputEdit={props.onSingleInputEdit}
                         selectedFieldsData={props.formData.select_fields}
                         formData={props.formData}/>
-      <WhereClauseForm />
+
+      <WhereClauseForm formData={props.formData}
+                        onSingleInputEdit={props.onSingleInputEdit}/>
     </form>
     )
 }
