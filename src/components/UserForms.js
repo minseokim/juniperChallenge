@@ -10,28 +10,30 @@ const UserForms = (props) => {
       <SingleInput type="text"
                     label="table_name"
                     description="Table Name"
-                    onSingleInputEdit={props.onSingleInputEdit}
+                    onInputChange={props.onInputChange}
                     formData={props.formData}
                     />
       <SingleInput type="datetime"
                     label="start_time"
                     description="Start Time in UNIX Epoch format"
-                    onSingleInputEdit={props.onSingleInputEdit}
+                    onInputChange={props.onInputChange}
                     formData={props.formData}
                     />
       <SingleInput type="datetime"
                     label="end_time"
                     description="End Time in UNIX Epoch format"
-                    onSingleInputEdit={props.onSingleInputEdit}
+                    onInputChange={props.onInputChange}
                     formData={props.formData}
                     />
       <SelectedFieldsList onSelectFieldsAdd={props.onSelectFieldsAdd}
-                          onSingleInputEdit={props.onSingleInputEdit}
+                          onInputChange={props.onInputChange}
                         selectedFieldsData={props.formData.select_fields}
-                        formData={props.formData}/>
+                        formData={props.formData}
+                        />
 
       <WhereClauseForm formData={props.formData}
-                        onSingleInputEdit={props.onSingleInputEdit}/>
+                        onInputChange={props.onInputChange}
+                        />
     </form>
     )
 }

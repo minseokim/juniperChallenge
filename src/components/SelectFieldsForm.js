@@ -9,7 +9,7 @@ const SelectFieldsForm = (props) => {
           <SingleInput type="text"
                         label="current_select_fields"
                         description="Select Fields"
-                        onSingleInputEdit={props.onSingleInputEdit}
+                        onInputChange={props.onInputChange}
                         formData={props.formData}
                         />
         </div>

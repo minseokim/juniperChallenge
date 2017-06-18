@@ -10,32 +10,37 @@ const WhereClauseForm = (props) => {
       <SingleInput type="text"
               label="name"
               description="Where Clause name"
-              onSingleInputEdit={props.onSingleInputEdit}
+              onInputChange={props.onInputChange}
               formData={props.formData}
               />
 
       <SingleInput type="text"
               label="value"
               description="Where Clause value"
-              onSingleInputEdit={props.onSingleInputEdit}
+              onInputChange={props.onInputChange}
               formData={props.formData}
               />
 
       <div className="form-group">
         <label htmlFor="value" className="control-label">Operator</label>
-        <select className="form-control">
-          <option value="EqualsOperator">=</option>
-          <option value="UnequalsOperator">!=</option>
+        <select className="form-control"
+                value={props.currentOperator}
+                onChange={event => props.onInputChange('currentOperator', event.target.value)}>
+          <option value="=">=</option>
+          <option value="!=">!=</option>
         </select>
       </div>
 
       <div className="form-group">
         <label htmlFor="value" className="control-label">AND/OR</label>
-        <select className="form-control">
-          <option value="AndSelector">AND</option>
-          <option value="OrSelector">OR</option>
+        <select className="form-control"
+                value={props.andOrSelected}
+                onChange={event => props.onInputChange('andOrSelected', event.target.value)}>
+          <option value="AND">AND</option>
+          <option value="OR">OR</option>
         </select>
       </div>
+
       <button type="button">Add Where Clause</button>
 
     </div>

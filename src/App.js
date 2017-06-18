@@ -16,15 +16,18 @@ class App extends Component {
         current_select_fields: "",
         name: "",
         value: "",
-        operator : ""
+        currentOperator: "",
+        andOrSelected: ""
       }
     };
-    this.handleSingleInputEdit = this.handleSingleInputEdit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
 
     this.handleSelectFieldsAdd = this.handleSelectFieldsAdd.bind(this);
+
+    this.handleDropDownChange = this.handleDropDownChange.bind(this);
   }
 
-  handleSingleInputEdit(label, value) {
+  handleInputChange(label, value) {
     this.setState(prevState => {
       prevState.formData[label] = value;
       return prevState;
@@ -41,8 +44,11 @@ class App extends Component {
     });
   }
 
-  handleWhereClauseFormEdit(event) {
-
+  handleDropDownChange(label, value) {
+    this.setState(prevState => {
+      prevState.formData[label] = value;
+      return prevState;
+    });
   }
 
   render() {
@@ -56,9 +62,11 @@ class App extends Component {
             <div className="col-sm-6">
               <UserForms
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
-                onSingleInputEdit={this.handleSingleInputEdit}
+                onInputChange={this.handleInputChange}
                 formData={this.state.formData}
-                currentWhereClauseData={this.state.formData.current_where_clause}
+                currentWhereClauseData={
+                  this.state.formData.current_where_clause
+                }
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
               />
             </div>

@@ -11,7 +11,7 @@ const SingleInput = props => {
         type={props.type}
         placeholder={props.description}
         value={props.formData[props.label]}
-        onChange={event => props.onSingleInputEdit(props.label, event.target.value)}
+        onChange={event => props.onInputChange(props.label, event.target.value)}
       />
     </div>
   );

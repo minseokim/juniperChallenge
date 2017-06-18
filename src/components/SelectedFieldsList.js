@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import SelectFieldsForm from './SelectFieldsForm';
 
 const SelectedFieldsList = (props) => {
@@ -8,7 +8,7 @@ const SelectedFieldsList = (props) => {
   return (
     <div>
       <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}
-                        onSingleInputEdit={props.onSingleInputEdit}
+                        onInputChange={props.onInputChange}
                         formData={props.formData}
                         />
       {selectedFieldsItems}
