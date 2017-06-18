@@ -8,7 +8,7 @@ const SelectedFieldsList = (props) => {
   return (
     <div className="form-group">
       <label className="control-label">Select Fields</label>
-      <SelectFieldsForm onSelectFieldsFormAdd={props.onSelectFieldsAdd}
+      <SelectFieldsForm onSelectFieldsAdd={props.onSelectFieldsAdd}
                         onCurrentSelectFieldsEdit={props.onSingleInputEdit}
                         title="current_select_fields"/>
       {selectedFieldsItems}

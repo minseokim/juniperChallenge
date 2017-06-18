@@ -2,11 +2,11 @@ import React from 'react';
 import SingleInput from './SingleInput';
 import SelectedFieldsList from './SelectedFieldsList';
 import SelectFieldsForm from './SelectFieldsForm';
-import WhereClause from './WhereClause';
+import WhereClauseForm from './WhereClauseForm';
 
 const UserForms = (props) => {
   return (
-    <form onSubmit={props.onFormSubmit}>
+    <form>
       <SingleInput type="text"
                     label="table_name"
                     description="Table Name"
@@ -22,7 +22,7 @@ const UserForms = (props) => {
       <SelectedFieldsList onSelectFieldsAdd={props.onSelectFieldsAdd}
                           onSingleInputEdit={props.onSingleInputEdit}
                         selectedFieldsData={props.formData.select_fields}/>
-      <WhereClause />
+      <WhereClauseForm />
     </form>
     )
 }

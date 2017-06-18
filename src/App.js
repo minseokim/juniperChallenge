@@ -19,7 +19,7 @@ class App extends Component {
     };
     this.handleSingleInputEdit = this.handleSingleInputEdit.bind(this);
 
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleSelectFieldsAdd = this.handleSelectFieldsAdd.bind(this);
   }
 
   handleSingleInputEdit(label, value) {
@@ -29,9 +29,8 @@ class App extends Component {
     });
   }
 
-  handleFormSubmit(event) {
+  handleSelectFieldsAdd(event) {
     event.preventDefault();
-    event.target.reset();
     this.setState(prevState => {
       const newSelectedField = prevState.formData.current_select_fields;
       prevState.formData.select_fields.push(newSelectedField);
@@ -52,7 +51,7 @@ class App extends Component {
                 onSelectFieldsAdd={this.handleSelectFieldsAdd}
                 onSingleInputEdit={this.handleSingleInputEdit}
                 formData={this.state.formData}
-                onFormSubmit={this.handleFormSubmit}
+                onSelectFieldsAdd={this.handleSelectFieldsAdd}
               />
             </div>
             <div className="col-sm-6">
