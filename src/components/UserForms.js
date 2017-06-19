@@ -10,7 +10,7 @@ const UserForms = (props) => {
       <SingleInput type="text"
                     label="table_name"
                     value={props.table_name}
-                    description="Table Name"
+                    description="Enter Table Name"
                     onInputChange={props.onInputChange}
                     className=""
                     />

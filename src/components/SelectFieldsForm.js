@@ -8,7 +8,7 @@ const SelectFieldsForm = (props) => {
         <SingleInput  type="text"
                       label="current_select_fields"
                       value={props.value}
-                      description="Select Fields"
+                      description="Enter Select Fields"
                       onInputChange={props.onInputChange}
                       />
           <button type="button"

@@ -12,7 +12,7 @@ const WhereClauseForm = props => {
         type="text"
         label="name"
         value={props.name}
-        description="Where Clause name"
+        description="Enter Where Clause name"
         onInputChange={props.onInputChange}
       />
 
@@ -20,7 +20,7 @@ const WhereClauseForm = props => {
         type="text"
         label="value"
         value={props.value}
-        description="Where Clause value"
+        description="Enter Where Clause value"
         onInputChange={props.onInputChange}
       />
 
