@@ -30,11 +30,11 @@ class SelectedFieldsList extends Component {
   render() {
     const selectedFieldsItems = this.props.selectedFieldsData.map(
       (data, index) =>
-        <div key={index} className="selectedField">
-          <p className="selectedField__paragraph">{data}</p>
+        <div key={index} className="selectedField__child">
+          <span className="selectedField__child__span">{data}</span>
           <button
             title="Remove this selected field"
-            className="col-xs-12 btn btn-danger selectedField__button"
+            className="btn btn-danger selectedField__child__button"
             type="button"
             onClick={() => this.props.onRemoveSelectFieldClick(index, "button")}
           >
@@ -44,14 +44,19 @@ class SelectedFieldsList extends Component {
     );
 
     return (
-      <div>
+      <div className="selectedFieldsList">
         <SelectFieldsForm
           value={this.state.current_select_fields}
           onSelectFieldsAdd={this.props.onSelectFieldsAdd}
           onInputChange={this.handleInputChange}
           clearInput={this.clearInput}
         />
-        {selectedFieldsItems}
+        <div className="selectedField">
+          <h3>Added Fields</h3>
+          <div className="selectedField__container">
+            {selectedFieldsItems}
+          </div>
+        </div>
       </div>
     );
   }

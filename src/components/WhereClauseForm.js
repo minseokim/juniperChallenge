@@ -42,14 +42,13 @@ const WhereClauseForm = props => {
       <button
         type="button"
         onClick={() => {
-          props.onWhereClauseAdd(
+            props.onWhereClauseAdd(
             props.name,
             props.value,
             props.currentOperator,
             props.andOrSelected
           );
-        }}
-      >
+        }}>
         Add Where Clause
       </button>
 

@@ -26,10 +26,20 @@ class WhereClauseList extends Component {
     const whereClauseListItems = this.props.whereClauseData.map((data, blockIndex) => {
       return data.map((currentClause, index) => {
         return (
-          <div key={JSON.stringify(currentClause.name)}>
-            <p>{currentClause.name}</p>
-            <p>{currentClause.value}</p>
-            <p>{currentClause.operator}</p>
+          <div key={index}
+                className="addedWhereClauseList__child">
+            <span
+              className="addedWhereClauseList__child__span">
+              {currentClause.name}
+            </span>
+            <span
+              className="addedWhereClauseList__child__span">
+              {currentClause.value}
+            </span>
+            <span
+              className="addedWhereClauseList__child__span">
+              {currentClause.operator}
+            </span>
             <button
               title="Remove this where clause data"
               className="col-xs-12 btn btn-danger"
@@ -53,7 +63,13 @@ class WhereClauseList extends Component {
           onWhereClauseAdd={this.props.onWhereClauseAdd}
           onInputChange={this.onInputChange}
         />
-        {whereClauseListItems}
+
+        <div className="addedwhereClauseList">
+          <h3>Added Where Clause</h3>
+          <div className="addedWhereClauseList__container">
+            {whereClauseListItems}
+          </div>
+        </div>
       </div>
     );
   }
