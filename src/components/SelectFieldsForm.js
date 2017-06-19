@@ -3,9 +3,8 @@ import SingleInput from './SingleInput';
 import PropTypes from 'prop-types';
 
 const SelectFieldsForm = (props) => {
-
   return (
-      <div>
+      <div className="SelectFieldsForm">
         <SingleInput  type="text"
                       label="current_select_fields"
                       value={props.value}
@@ -13,6 +12,7 @@ const SelectFieldsForm = (props) => {
                       onInputChange={props.onInputChange}
                       />
           <button type="button"
+                  className="SelectFieldsForm__addFieldButton"
                   onClick={() => {
                     props.onSelectFieldsAdd(props.value);
                     props.clearInput();

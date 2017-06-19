@@ -1,7 +1,6 @@
 import React from 'react';
 import SingleInput from './SingleInput';
 import SelectedFieldsList from './SelectedFieldsList';
-import SelectFieldsForm from './SelectFieldsForm';
 import WhereClauseList from './WhereClauseList';
 import PropTypes from 'prop-types';
 

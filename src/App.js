@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   handleInputChange(label, value, type) {
-    let updatedValue = type === "number" ? Number.parseInt(value) : value;
+    let updatedValue = type === "number" ? Number.parseInt(value, 10) : value;
 
     this.setState(prevState => {
       prevState[label] = updatedValue;
