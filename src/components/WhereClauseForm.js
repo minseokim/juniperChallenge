@@ -41,6 +41,7 @@ const WhereClauseForm = props => {
       />
       <button
         type="button"
+        className="WhereClauseForm__addButton"
         onClick={() => {
             props.onWhereClauseAdd(
             props.name,

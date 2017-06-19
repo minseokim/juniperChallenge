@@ -42,7 +42,7 @@ class WhereClauseList extends Component {
             </span>
             <button
               title="Remove this where clause data"
-              className="col-xs-12 btn btn-danger"
+              className="col-xs-12 btn btn-danger addedWhereClauseList__child__removeButton"
               type="button"
               onClick={() => this.props.onRemoveWhereClause(blockIndex, index)}
             >

@@ -11,10 +11,9 @@ const wrapper = mount(<WhereClauseList
                       />);
 
 it('should handle dropdown field input change', () => {
-
-  const inputs = wrapper.find('select');
+  const dropDown = wrapper.find('select');
   const testValue = '===';
-  inputs.at('0').simulate('change', {target: { value : testValue}});
+  dropDown.at('0').simulate('change', {target: { value : testValue}});
   expect(wrapper.state('currentOperator')).toBe(testValue);
 });
 

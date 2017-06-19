@@ -86,12 +86,10 @@ class App extends Component {
     this.setState((prevState) => {
       const whereClause = prevState.where_clause;
       const whereClauseBlock = whereClause[blockIndex];
-      //Case 1 :
       if (whereClauseBlock.length > 1) {
         //Use index to remove from whereClauseBlock
         whereClauseBlock.splice(index, 1);
       } else {
-        //Case 2 :
         whereClause.splice(blockIndex, 1);
       }
       return prevState;
