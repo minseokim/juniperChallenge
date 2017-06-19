@@ -18,7 +18,7 @@ const QueryDisplay = (props) => {
 
   return (
     <div className="queryDisplay">
-      <h2>Generated Query</h2>
+      <h3>Generated Query</h3>
       <pre className="queryDisplay__codeBlock"><code>{generateQuery()}</code></pre>
     </div>
     )

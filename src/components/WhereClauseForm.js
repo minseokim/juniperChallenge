@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 
 const WhereClauseForm = props => {
   return (
-    <div>
-      <p><strong>Where Clause</strong></p>
+    <div className="WhereClauseForm">
+      <h3 className="WhereClauseForm__heading">Where Clause</h3>
 
       <SingleInput
         type="text"
