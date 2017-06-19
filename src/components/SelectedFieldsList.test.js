@@ -1,11 +1,10 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import SelectedFieldsList from './SelectedFieldsList';
-
-const testingSelectedFieldsData = ['time', 'source_vn', 'destination_vn', 'source_port'];
+import testData from './../testingData/selectedFieldsData';
 
 const wrapper = mount(<SelectedFieldsList
-                          selectedFieldsData={testingSelectedFieldsData}
+                          selectedFieldsData={testData}
                           onSelectFieldsAdd={() => {}}
                           onInputChange={() => {}}
                           onRemoveSelectFieldClick={() => {}}
@@ -21,8 +20,8 @@ it('should handle selected field input change', () => {
 
 it('should render correct number of selected fields based on given data', () => {
 
-  const inputs = wrapper.find(".selectedField__paragraph");
-  expect(inputs.length).toBe(testingSelectedFieldsData.length);
+  const spans = wrapper.find(".selectedField__child__span");
+  expect(spans.length).toBe(testData.length);
 });
 
 it ('should clear out input field after added selected field', () => {
