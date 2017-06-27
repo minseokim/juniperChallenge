@@ -6,11 +6,11 @@ const QueryDisplay = (props) => {
   const generateQuery = () => {
 
     const obj = {
-      table_name : props.tableName,
-      start_time: props.startTime,
-      end_time: props.endTime,
-      select_fields: props.selectFields,
-      where_clause: props.whereClause
+      table_name : props.table_name,
+      start_time: props.start_time,
+      end_time: props.end_time,
+      select_fields: props.select_fields,
+      where_clause: props.where_clause
     };
 
     return JSON.stringify(obj, null, 4);
