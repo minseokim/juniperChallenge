@@ -1,4 +1,5 @@
-# Juniper Networks Coding Challenge
+### Query Generator
+Based on a specific JSON schema, this app generates a query based on user input. This app was built as part of a coding challenge.
 
 ### Running the app
 - `yarn` to install dependencies
@@ -7,6 +8,6 @@
 - `npm run test` to run tests
 
 ### Technologies Used
-- React
+- React/Redux
 - Jest and Enzyme for testing
 - create-react-app, Babel, Webpack
