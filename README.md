@@ -1,5 +1,5 @@
 ### Query Generator
-Based on a specific JSON schema, this app generates a query based on user input. This app was built as part of a coding challenge.
+Based on a specific JSON schema, this app generates a query based on user input. This app was built as part of a coding challenge for Juniper Challenge. It was built with minimal UI, with a focus on functionality. You can see the app at https://minseokim.github.io/query-generator
 
 ### Running the app
 - `yarn` to install dependencies

@@ -2,6 +2,7 @@
   "name": "juniperChallenge",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://minseokim.github.io/query-generator",
   "devDependencies": {
     "react-scripts": "1.0.7"
   },
@@ -17,6 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
